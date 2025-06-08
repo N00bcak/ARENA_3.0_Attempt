@@ -274,8 +274,12 @@ def test_sae_forward(SAE):
 
 
 def test_sae_W_dec_normalized(SAE):
-    sae = setup_sae(SAE)[0]
+    sae, soln_sae = setup_sae(SAE)
 
+    # print(type(sae))
+    # print(sae.__dict__.keys())
+    # print(sae.W_dec)
+    print(soln_sae.W_dec_normalized)
     W_dec = sae.W_dec
     W_dec_normalized = sae.W_dec_normalized
     t.testing.assert_close(W_dec / W_dec.norm(dim=-1, keepdim=True), W_dec_normalized)

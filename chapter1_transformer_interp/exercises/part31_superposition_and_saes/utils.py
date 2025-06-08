@@ -133,6 +133,7 @@ def plot_features_in_Nd(
 
     # Normalize W, i.e. W_normed[inst, i] is normalized i-th feature vector
     W_normed = W / (1e-6 + t.linalg.norm(W, 2, dim=1, keepdim=True))
+    # print(t.linalg.norm(W, 2, dim=1, keepdim=True).shape)
 
     # We get interference[i, j] = sum_{j!=i} (W_normed[i] @ W[j]) (ignoring the instance dimension)
     # because then we can calculate superposition by squaring & summing this over j
